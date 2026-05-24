@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TrainCard = ({ train }) => {
     return (
@@ -9,7 +10,9 @@ const TrainCard = ({ train }) => {
             <p><strong>Прибуття:</strong> {train.arrival}</p>
             <p><strong>Тривалість:</strong> {train.duration}</p>
             <div className="price">Ціна: {train.price} грн</div>
-            <button className="btn-book">Обрати місця</button>
+            <Link to={`/booking/${train.id}`} className="btn-book" style={{ display: 'block', textAlign: 'center', textDecoration: 'none', boxSizing: 'border-box' }}>
+                Обрати місця
+            </Link>
         </div>
     );
 };

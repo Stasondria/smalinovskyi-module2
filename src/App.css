@@ -1,75 +1,87 @@
-.app-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: sans-serif;
-}
-
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-.search-input {
-    width: 100%;
-    max-width: 400px;
-    padding: 12px;
-    margin: 0 auto 30px auto;
-    display: block;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-.train-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.train-card {
-    border: 1px solid #e0e0e0;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
-    background-color: #fff;
-}
-
-    .train-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-    }
-
-    .train-card h3 {
-        margin-top: 0;
-        color: #1a1a1a;
-    }
-
-    .train-card p {
-        margin: 8px 0;
-        color: #555;
-    }
-
-.price {
-    font-size: 1.2em;
+/* --- СТИЛІ ДЛЯ СТОРІНКИ БРОНЮВАННЯ --- */
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #0056b3;
     font-weight: bold;
-    color: #e63946;
-    margin: 15px 0;
 }
 
-.btn-book {
-    width: 100%;
-    padding: 12px;
-    background-color: #0056b3;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
+.booking-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.selection-area {
+    flex: 1;
+    min-width: 300px;
+}
+
+.summary-area {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    border: 2px dashed #0056b3;
+    border-radius: 8px;
+    height: fit-content;
+    background-color: #f8f9fa;
+}
+
+/* Вагони */
+.wagons-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.btn-wagon {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
     cursor: pointer;
-    transition: background-color 0.2s;
+    background: white;
+    border-radius: 4px;
+    font-weight: bold;
 }
 
-    .btn-book:hover {
-        background-color: #004494;
+    .btn-wagon:hover {
+        background: #e2e6ea;
+    }
+
+    .btn-wagon.selected {
+        background: #0056b3;
+        color: white;
+        border-color: #0056b3;
+    }
+
+/* Місця */
+.seats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 250px;
+}
+
+.seat {
+    padding: 15px 0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 6px;
+    background: #e9ecef;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+    .seat.free:hover {
+        background: #d3d9df;
+        transform: scale(1.05);
+    }
+
+    .seat.selected {
+        background: #28a745;
+        color: white;
+        border-color: #28a745;
     }
