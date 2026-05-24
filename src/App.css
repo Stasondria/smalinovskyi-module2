@@ -85,3 +85,28 @@
         color: white;
         border-color: #28a745;
     }
+/* Форма бронювання */
+.booking-form {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+.error-text {
+    color: #e63946;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
