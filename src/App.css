@@ -1,112 +1,110 @@
-/* --- СТИЛІ ДЛЯ СТОРІНКИ БРОНЮВАННЯ --- */
-.back-link {
-    display: inline-block;
-    margin-bottom: 20px;
-    text-decoration: none;
-    color: #0056b3;
-    font-weight: bold;
+:root {
+    --primary: #003366; /* Темно-синій УЗ */
+    --accent: #ffcc00; /* Жовтий акцент */
+    --bg: #f4f7f6;
+    --text: #333;
 }
 
-.booking-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 20px;
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
 }
 
-.selection-area {
-    flex: 1;
-    min-width: 300px;
+h1, h2 {
+    color: var(--primary);
 }
 
-.summary-area {
-    flex: 1;
-    min-width: 300px;
-    padding: 20px;
-    border: 2px dashed #0056b3;
+.app-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Картки потягів */
+.train-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.train-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    border-left: 5px solid var(--primary);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+    .train-card:hover {
+        transform: translateY(-8px);
+    }
+
+/* Кнопки */
+.btn-book {
+    background-color: var(--primary);
+    color: white;
+    padding: 12px;
+    border: none;
     border-radius: 8px;
-    height: fit-content;
-    background-color: #f8f9fa;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
 }
 
-/* Вагони */
+    .btn-book:hover {
+        background-color: #004080;
+    }
+
+/* Дизайн вибору вагонів */
 .wagons-list {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .btn-wagon {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    cursor: pointer;
+    padding: 10px 20px;
+    border: 2px solid var(--primary);
     background: white;
-    border-radius: 4px;
+    color: var(--primary);
+    border-radius: 8px;
     font-weight: bold;
+    cursor: pointer;
 }
 
-    .btn-wagon:hover {
-        background: #e2e6ea;
-    }
-
     .btn-wagon.selected {
-        background: #0056b3;
+        background: var(--primary);
         color: white;
-        border-color: #0056b3;
     }
 
-/* Місця */
+/* Дизайн схеми місць */
 .seats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    max-width: 250px;
+    gap: 12px;
+    padding: 20px;
+    background: #eee;
+    border-radius: 12px;
 }
 
 .seat {
-    padding: 15px 0;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    text-align: center;
+    height: 40px;
     border-radius: 6px;
-    background: #e9ecef;
+    border: none;
+    cursor: pointer;
+    background: white;
     font-weight: bold;
-    transition: 0.2s;
 }
-
-    .seat.free:hover {
-        background: #d3d9df;
-        transform: scale(1.05);
-    }
 
     .seat.selected {
         background: #28a745;
         color: white;
-        border-color: #28a745;
     }
-/* Форма бронювання */
-.booking-form {
-    margin-top: 20px;
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-    .form-group input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
+    .seat.booked {
+        background: #adb5bd;
+        cursor: not-allowed;
     }
-
-.error-text {
-    color: #e63946;
-    font-size: 12px;
-    display: block;
-    margin-top: 5px;
-}

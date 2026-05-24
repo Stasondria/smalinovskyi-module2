@@ -10,10 +10,13 @@ const SeatMap = ({ selectedSeats, onToggleSeat }) => {
             <div className="seats-grid">
                 {seats.map(seat => {
                     const isSelected = selectedSeats.includes(seat);
+                    const isBooked = [13, 14, 25].includes(seat); // Тестові зайняті місця
+
                     return (
                         <button
                             key={seat}
-                            className={`seat ${isSelected ? 'selected' : 'free'}`}
+                            disabled={isBooked}
+                            className={`seat ${isSelected ? 'selected' : ''} ${isBooked ? 'booked' : 'free'}`}
                             onClick={() => onToggleSeat(seat)}
                         >
                             {seat}
