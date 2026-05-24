@@ -6,6 +6,7 @@ import { trainsData } from '../data/trains';
 import WagonSelector from '../components/WagonSelector';
 import SeatMap from '../components/SeatMap';
 import BookingForm from '../components/BookingForm';
+import { BookingService } from '../services/BookingService';
 
 const Booking = () => {
     const { id } = useParams();
@@ -35,17 +36,12 @@ const Booking = () => {
             totalPrice: selectedSeats.length * train.price
         };
 
-        // Зберігаємо в LocalStorage
-        const existingBookings = JSON.parse(localStorage.getItem('railway_bookings')) || [];
-        localStorage.setItem('railway_bookings', JSON.stringify([...existingBookings, bookingData]));
+        BookingService.saveBooking(bookingData);
 
-        // Показуємо успішне повідомлення
         toast.success(`Успішно! Ви забронювали ${selectedSeats.length} місць.`);
 
-        // Очищаємо вибрані місця
         setSelectedSeats([]);
 
-        // Опційно: через 3 секунди повертаємо на головну
         setTimeout(() => navigate('/'), 3000);
     };
 
